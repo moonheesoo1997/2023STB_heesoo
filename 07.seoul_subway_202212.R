@@ -51,6 +51,12 @@ passenger10 <- subway%>%
   summarise(m=mean(total_passenger))%>%
   arrange(desc(m))%>%
   head(10)
+
+passenger11 <- subway%>%
+  group_by(Station,Line)%>%
+  summarise(m=mean(total_passenger))%>%
+  arrange(desc(m))%>%
+  head(10)
 #3-2. 상위 3곳 찾기
 head(passenger10,3)
 
@@ -59,12 +65,15 @@ ggplot(data = passenger10, aes(x=reorder(Station,m),y=m)) +
   geom_col()+
   coord_flip()
 
+ggplot(data = passenger11, aes(x=reorder(Station,m),y=m)) +
+  geom_col()+
+  coord_flip()
 #5.일별 전체승객 분석
 subway%>%
   group_by(Date)%>%
   summarise(total=sum(total_passenger))%>%
   arrange(desc(total))%>%
-  head(3)
+  head(10)
 
 #6.특정 line 분석(1호선)
 subway%>%
@@ -80,11 +89,11 @@ line_pct <- subway%>%
 
 line_pct %>%
   arrange(desc(pct))%>%
-  head(3)
+  head(5)
 
 #8.지하철 전체 승객 비율 막대그래프 그리기
 line_pct10 <- line_pct%>%
-  filter(Line%in%c("1호선","2호선","3호선","4호선","5호선","6호선","7호선","8호선","9호선","분당성"))
+  filter(Line%in%c("1호선","2호선","3호선","4호선","5호선","6호선","7호선","8호선"))
 
 ggplot(data = line_pct10,aes(x=reorder(Line,pct),y=pct)) +
   geom_col()+
