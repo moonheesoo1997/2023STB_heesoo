@@ -194,7 +194,7 @@ s1900 = c(out$mean_s1900)
 s1930 = c(out$mean_s1930)
 s2000 = c(out$mean_s2000)
 
-df1 = data.frame('s1800'=s1800, 's1830'=s1830,'s1900'=s1900,'s1930'=s0830,'s2000'=s2000)
+df1 = data.frame('s1800'=s1800, 's1830'=s1830,'s1900'=s1900,'s1930'=s1930,'s2000'=s2000)
 
 barplot(as.matrix(df1),beside = T,ylim = c(0,50),col=rainbow(nrow(df)))
 legend("topright",c("1호선","2호선","3호선","4호선","5호선","6호선","7호선","8호선"),cex=0.8,fill=rainbow(nrow(df)))
