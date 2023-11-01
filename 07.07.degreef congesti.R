@@ -60,35 +60,39 @@ mean(line7$day_mean)
 mean(line8$day_mean)
 
 #3. 지하철 호선별 출근시간(07:00~09:00)대의 평균 혼잡도
-line1go <- subset(line1, select = c("s0700","s0730","s0800","s0830","s0900"))
+line1go <- subset(line1, select = c("station","s0700","s0730","s0800","s0830","s0900"))
 line1go$day_mean <- rowMeans(line1go[,c("s0700","s0730","s0800","s0830","s0900")])
 mean(line1go$day_mean)
 
-line2go <- subset(line2, select = c("s0700","s0730","s0800","s0830","s0900"))
+line2go <- subset(line2, select = c("station","s0700","s0730","s0800","s0830","s0900"))
 line2go$day_mean <- rowMeans(line2go[,c("s0700","s0730","s0800","s0830","s0900")])
 mean(line2go$day_mean)
 
-line3go <- subset(line3, select = c("s0700","s0730","s0800","s0830","s0900"))
+line3go <- subset(line3, select = c("station","s0700","s0730","s0800","s0830","s0900"))
 line3go$day_mean <- rowMeans(line3go[,c("s0700","s0730","s0800","s0830","s0900")])
 mean(line3go$day_mean)
 
-line4go <- subset(line4, select = c("s0700","s0730","s0800","s0830","s0900"))
+line4go <- subset(line4, select = c("station","s0700","s0730","s0800","s0830","s0900"))
 line4go$day_mean <- rowMeans(line4go[,c("s0700","s0730","s0800","s0830","s0900")])
 mean(line4go$day_mean)
 
-line5go <- subset(line5, select = c("s0700","s0730","s0800","s0830","s0900"))
+line5go <- subset(line5, select = c("station","s0700","s0730","s0800","s0830","s0900"))
 line5go$day_mean <- rowMeans(line5go[,c("s0700","s0730","s0800","s0830","s0900")])
 mean(line5go$day_mean)
 
-line6go <- subset(line6, select = c("s0700","s0730","s0800","s0830","s0900"))
+line6go <- subset(line6, select = c("station","s0700","s0730","s0800","s0830","s0900"))
 line6go$day_mean <- rowMeans(line6go[,c("s0700","s0730","s0800","s0830","s0900")])
 mean(line6go$day_mean)
 
-line7go <- subset(line7, select = c("s0700","s0730","s0800","s0830","s0900"))
+line7go <- subset(line7, select = c("station","s0700","s0730","s0800","s0830","s0900"))
 line7go$day_mean <- rowMeans(line7go[,c("s0700","s0730","s0800","s0830","s0900")])
 mean(line7go$day_mean)
 
-line8go <- subset(line8, select = c("s0700","s0730","s0800","s0830","s0900"))
+line7go%>%
+  + select("station","s0700")%>%
+  + arrange(desc(s0700))
+
+line8go <- subset(line8, select = c("station","s0700","s0730","s0800","s0830","s0900"))
 line8go$day_mean <- rowMeans(line8go[,c("s0700","s0730","s0800","s0830","s0900")])
 mean(line8go$day_mean)
 
