@@ -148,42 +148,46 @@ congestion1 %>%
   head(8)
 
 #5. 지하철 호선별 퇴근시간(18:00~20:00)대의 평균 혼잡도
-line1out <- subset(line1, select = c("s1800","s1830","s1900","s1930","s2000"))
+line1out <- subset(line1, select = c("station","s1800","s1830","s1900","s1930","s2000"))
 line1out$day_mean <- rowMeans(line1out[,c("s1800","s1830","s1900","s1930","s2000")])
 mean(line1out$day_mean)
 summary(line1out$day_mean)
 
-line2out <- subset(line2, select = c("s1800","s1830","s1900","s1930","s2000"))
+line2out <- subset(line2, select = c("station","s1800","s1830","s1900","s1930","s2000"))
 line2out$day_mean <- rowMeans(line2out[,c("s1800","s1830","s1900","s1930","s2000")])
 mean(line2out$day_mean)
 summary(line2out$day_mean)
 
-line3out <- subset(line3, select = c("s1800","s1830","s1900","s1930","s2000"))
+line3out <- subset(line3, select = c("station","s1800","s1830","s1900","s1930","s2000"))
 line3out$day_mean <- rowMeans(line3out[,c("s1800","s1830","s1900","s1930","s2000")])
 mean(line3out$day_mean)
 summary(line3out$day_mean)
 
-line4out <- subset(line4, select = c("s1800","s1830","s1900","s1930","s2000"))
+line4out <- subset(line4, select = c("station","s1800","s1830","s1900","s1930","s2000"))
 line4out$day_mean <- rowMeans(line4out[,c("s1800","s1830","s1900","s1930","s2000")])
 mean(line4out$day_mean)
 summary(line4out$day_mean)
 
-line5out <- subset(line5, select = c("s1800","s1830","s1900","s1930","s2000"))
+line5out <- subset(line5, select = c("station","s1800","s1830","s1900","s1930","s2000"))
 line5out$day_mean <- rowMeans(line5out[,c("s1800","s1830","s1900","s1930","s2000")])
 mean(line5out$day_mean)
 summary(line5out$day_mean)
 
-line6out <- subset(line6, select = c("s1800","s1830","s1900","s1930","s2000"))
+line6out <- subset(line6, select = c("station","s1800","s1830","s1900","s1930","s2000"))
 line6out$day_mean <- rowMeans(line6out[,c("s1800","s1830","s1900","s1930","s2000")])
 mean(line6out$day_mean)
 summary(line6out$day_mean)
 
-line7out <- subset(line7, select = c("s1800","s1830","s1900","s1930","s2000"))
+line7out <- subset(line7, select = c("station","s1800","s1830","s1900","s1930","s2000"))
 line7out$day_mean <- rowMeans(line7out[,c("s1800","s1830","s1900","s1930","s2000")])
 mean(line7out$day_mean)
 summary(line7out$day_mean)
 
-line8out <- subset(line8, select = c("s1800","s1830","s1900","s1930","s2000"))
+line7out%>%
+  + select("station","s1800")%>%
+  + arrange(desc(s1800))
+
+line8out <- subset(line8, select = c("station","s1800","s1830","s1900","s1930","s2000"))
 line8out$day_mean <- rowMeans(line8out[,c("s1800","s1830","s1900","s1930","s2000")])
 mean(line8out$day_mean)
 summary(line8out$day_mean)
