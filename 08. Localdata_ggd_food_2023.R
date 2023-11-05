@@ -51,7 +51,8 @@ table(is.na(foodshop$open_date))#결측치 없음
 foodshop$open_year<-substr(foodshop$open_date,1,4)#인허가년도 변수 생성
 
 #결측치 제거
-foodshop1 <- foodshop[!is.na(foodshop$open_date)]
+foodshop1 <- foodshop%>% 
+  filter(!is.na(foodshop$open_date))
 
 #4.close_date변수
 range(foodshop1$close_date, na.rm = T)
@@ -60,7 +61,7 @@ foodshop1$close_year<-substr(foodshop1$close_date,1,4)#인허가년도 변수 �
 #5.address변수
 foodshop1$district<-substr(foodshop1$address,4,8)#구 정보를 분리하여 변수 생성
 table(foodshop1$district)#이상치 확인
-foodshop1$district <- ifelse(foodshop1$district%in%c("6번지","별시 ","역시 계양","역시 남동","역시 미추","역시 서구","도 밀양시","도 영암군","별시 강남","별시 관악","별시 금천","별시 노원","별시 마포","별시 용산","별시 은평"),NA,foodshop1$district)#이상치제거
+foodshop1$district <- ifelse(foodshop1$district%in%c("6번지","별시 ","역시 계양","역시 남동","역시 미추","역시 서구","도 밀양시","도 영암군","별시 강남","별시 관악","별시 금천","별시 노원","별시 마포","별시 용산","별시 은평",",106호","사회"),NA,foodshop1$district)#이상치제거
 table(foodshop1$district)#이상치 확인
 
 #최종 확인
